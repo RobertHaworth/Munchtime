@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4AB896702AA107A90022FE92 /* MunchtimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */; };
-		4AB896722AA107A90022FE92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896712AA107A90022FE92 /* ContentView.swift */; };
+		4AB896722AA107A90022FE92 /* DessertsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896712AA107A90022FE92 /* DessertsListView.swift */; };
 		4AB896742AA107AA0022FE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB896732AA107AA0022FE92 /* Assets.xcassets */; };
 		4AB896782AA107AA0022FE92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB896772AA107AA0022FE92 /* Preview Assets.xcassets */; };
 		4AB896822AA107AA0022FE92 /* MunchtimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896812AA107AA0022FE92 /* MunchtimeTests.swift */; };
 		4AB8968C2AA107AA0022FE92 /* MunchtimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8968B2AA107AA0022FE92 /* MunchtimeUITests.swift */; };
 		4AB8968E2AA107AA0022FE92 /* MunchtimeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8968D2AA107AA0022FE92 /* MunchtimeUITestsLaunchTests.swift */; };
+		4AB8969C2AA10A7C0022FE92 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8969B2AA10A7C0022FE92 /* Request.swift */; };
+		4AB8969F2AA119410022FE92 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8969E2AA119410022FE92 /* Meal.swift */; };
+		4AB896A12AA12B1A0022FE92 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */; };
+		4AB896A42AA12D380022FE92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4AB896A32AA12D380022FE92 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		4AB8966C2AA107A90022FE92 /* Munchtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Munchtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunchtimeApp.swift; sourceTree = "<group>"; };
-		4AB896712AA107A90022FE92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4AB896712AA107A90022FE92 /* DessertsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertsListView.swift; sourceTree = "<group>"; };
 		4AB896732AA107AA0022FE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB896752AA107AA0022FE92 /* Munchtime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Munchtime.entitlements; sourceTree = "<group>"; };
 		4AB896772AA107AA0022FE92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +49,9 @@
 		4AB896872AA107AA0022FE92 /* MunchtimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MunchtimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB8968B2AA107AA0022FE92 /* MunchtimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunchtimeUITests.swift; sourceTree = "<group>"; };
 		4AB8968D2AA107AA0022FE92 /* MunchtimeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunchtimeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4AB8969B2AA10A7C0022FE92 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		4AB8969E2AA119410022FE92 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB896A42AA12D380022FE92 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +103,10 @@
 		4AB8966E2AA107A90022FE92 /* Munchtime */ = {
 			isa = PBXGroup;
 			children = (
+				4AB8969A2AA10A6A0022FE92 /* Networking */,
 				4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */,
-				4AB896712AA107A90022FE92 /* ContentView.swift */,
+				4AB896712AA107A90022FE92 /* DessertsListView.swift */,
+				4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */,
 				4AB896732AA107AA0022FE92 /* Assets.xcassets */,
 				4AB896752AA107AA0022FE92 /* Munchtime.entitlements */,
 				4AB896762AA107AA0022FE92 /* Preview Content */,
@@ -129,6 +139,23 @@
 			path = MunchtimeUITests;
 			sourceTree = "<group>";
 		};
+		4AB8969A2AA10A6A0022FE92 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8969D2AA119310022FE92 /* Entities */,
+				4AB8969B2AA10A7C0022FE92 /* Request.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4AB8969D2AA119310022FE92 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4AB8969E2AA119410022FE92 /* Meal.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +172,9 @@
 			dependencies = (
 			);
 			name = Munchtime;
+			packageProductDependencies = (
+				4AB896A32AA12D380022FE92 /* Kingfisher */,
+			);
 			productName = Munchtime;
 			productReference = 4AB8966C2AA107A90022FE92 /* Munchtime.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +247,9 @@
 				Base,
 			);
 			mainGroup = 4AB896632AA107A90022FE92;
+			packageReferences = (
+				4AB896A22AA12D380022FE92 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 4AB8966D2AA107A90022FE92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AB896722AA107A90022FE92 /* ContentView.swift in Sources */,
+				4AB8969F2AA119410022FE92 /* Meal.swift in Sources */,
+				4AB896722AA107A90022FE92 /* DessertsListView.swift in Sources */,
+				4AB8969C2AA10A7C0022FE92 /* Request.swift in Sources */,
+				4AB896A12AA12B1A0022FE92 /* MealDetailView.swift in Sources */,
 				4AB896702AA107A90022FE92 /* MunchtimeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,6 +648,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4AB896A22AA12D380022FE92 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4AB896A32AA12D380022FE92 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AB896A22AA12D380022FE92 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AB896642AA107A90022FE92 /* Project object */;
 }
