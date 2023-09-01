@@ -16,10 +16,17 @@ struct DessertsListView: View {
 
     var body: some View {
         NavigationStack {
-            List(meals) { meal in
-                NavigationLink(value: meal) {
-                    MealCard(meal: meal)
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.fixed(175)), GridItem(.fixed(175))]) {
+                    ForEach(meals) { meal in
+                        NavigationLink(value: meal) {
+                            MealCard(meal: meal)
+                        }
+                    }
                 }
+            }
+            .refreshable {
+                getDesserts()
             }
             .navigationDestination(for: Meal.self, destination: { meal in
                 MealDetailView(meal: meal)
@@ -35,9 +42,7 @@ struct DessertsListView: View {
 
 
             })
-            .refreshable {
-                getDesserts()
-            }
+
             .onAppear {
                 getDesserts()
             }
@@ -64,7 +69,7 @@ struct DessertsListView: View {
     func getDesserts() {
         Task {
             do {
-                meals = try await Request.sharedInstance.getAllDesserts()
+                meals = try await Request.sharedInstance.getAllMeals(category: "Dessert")
             } catch {
                 self.error = error
                 self.shouldDisplayError = true
@@ -77,20 +82,39 @@ struct MealCard: View {
     let meal: Meal
 
     var body: some View {
-        HStack {
+        VStack(alignment: .center) {
             KFImage(meal.mealThumbnail)
                 .resizable()
                 .placeholder({ _ in
                     ProgressView()
                 })
-            .frame(width: 50, height: 50)
+            .frame(width: 100, height: 100)
+            .cornerRadius(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .strokeBorder(.cyan, lineWidth: 3)
+            )
+
             Text(meal.mealName)
+                .lineLimit(2)
+                .font(.subheadline)
+                .foregroundColor(.black)
         }
+        .padding()
+        .frame(minWidth: 150, maxWidth: 200, minHeight: 150, maxHeight: 200)
+        .background(Color.green.opacity(0.2))
+        .cornerRadius(16.0)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         DessertsListView()
+    }
+}
+
+struct MealCard_Previews: PreviewProvider {
+    static var previews: some View {
+        MealCard(meal: Meal.previewItem)
     }
 }
