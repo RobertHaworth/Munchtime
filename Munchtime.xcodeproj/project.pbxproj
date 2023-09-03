@@ -19,6 +19,9 @@
 		4AB896A12AA12B1A0022FE92 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */; };
 		4AB896A42AA12D380022FE92 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4AB896A32AA12D380022FE92 /* Kingfisher */; };
 		4AB896A62AA138A60022FE92 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896A52AA138A60022FE92 /* MealDetail.swift */; };
+		4AB896A92AA50C070022FE92 /* MealIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896A82AA50C070022FE92 /* MealIngredientView.swift */; };
+		4AB896AB2AA50C5D0022FE92 /* PreviewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */; };
+		4AB896AD2AA50F5C0022FE92 /* MealInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		4AB8969E2AA119410022FE92 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 		4AB896A52AA138A60022FE92 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
+		4AB896A82AA50C070022FE92 /* MealIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealIngredientView.swift; sourceTree = "<group>"; };
+		4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtensions.swift; sourceTree = "<group>"; };
+		4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +111,12 @@
 		4AB8966E2AA107A90022FE92 /* Munchtime */ = {
 			isa = PBXGroup;
 			children = (
-				4AB8969A2AA10A6A0022FE92 /* Networking */,
-				4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */,
-				4AB896712AA107A90022FE92 /* DessertsListView.swift */,
-				4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */,
-				4AB896732AA107AA0022FE92 /* Assets.xcassets */,
 				4AB896752AA107AA0022FE92 /* Munchtime.entitlements */,
+				4AB896712AA107A90022FE92 /* DessertsListView.swift */,
+				4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */,
+				4AB896732AA107AA0022FE92 /* Assets.xcassets */,
+				4AB896A72AA50BC90022FE92 /* Detail Views */,
+				4AB8969A2AA10A6A0022FE92 /* Networking */,
 				4AB896762AA107AA0022FE92 /* Preview Content */,
 			);
 			path = Munchtime;
@@ -119,6 +125,7 @@
 		4AB896762AA107AA0022FE92 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */,
 				4AB896772AA107AA0022FE92 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -157,6 +164,16 @@
 				4AB896A52AA138A60022FE92 /* MealDetail.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		4AB896A72AA50BC90022FE92 /* Detail Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */,
+				4AB896A82AA50C070022FE92 /* MealIngredientView.swift */,
+				4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */,
+			);
+			path = "Detail Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,9 +315,12 @@
 				4AB8969F2AA119410022FE92 /* Meal.swift in Sources */,
 				4AB896722AA107A90022FE92 /* DessertsListView.swift in Sources */,
 				4AB8969C2AA10A7C0022FE92 /* Request.swift in Sources */,
+				4AB896A92AA50C070022FE92 /* MealIngredientView.swift in Sources */,
+				4AB896AB2AA50C5D0022FE92 /* PreviewExtensions.swift in Sources */,
 				4AB896A62AA138A60022FE92 /* MealDetail.swift in Sources */,
 				4AB896A12AA12B1A0022FE92 /* MealDetailView.swift in Sources */,
 				4AB896702AA107A90022FE92 /* MunchtimeApp.swift in Sources */,
+				4AB896AD2AA50F5C0022FE92 /* MealInstructionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

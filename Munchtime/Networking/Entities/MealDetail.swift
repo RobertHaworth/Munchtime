@@ -17,46 +17,18 @@ struct MealDetail: Codable {
     let instructions: String // strInstructions
     let tags: [String] // strTags
     let instructionVideo: String // strYoutube
-    let ingredients: [String] // strIngredient1-20
-    let measurements: [String] // strMeasure1-20
+    let ingredients: [Ingredient]
     let source: String?
     let imageSource: String?
     let creativeCommonsConfirmed: String?
     let dateModified: String?
+}
 
-    static var previewData: MealDetail {
-        return MealDetail(mealId: "0000",
-                          mealName: "Teriyaki Chicken Casserole",
-                          mealImage: URL(string: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg")!,
-                          drinkAlternate: nil,
-                          category: "Chicken",
-                          locale: "Japanese",
-                          instructions: "Preheat oven to 350\u{00b0} F. Spray a 9x13-inch baking pan with non-stick spray.\r\nCombine soy sauce, \u{00bd} cup water, brown sugar, ginger and garlic in a small saucepan and cover. Bring to a boil over medium heat. Remove lid and cook for one minute once boiling.\r\nMeanwhile, stir together the corn starch and 2 tablespoons of water in a separate dish until smooth. Once sauce is boiling, add mixture to the saucepan and stir to combine. Cook until the sauce starts to thicken then remove from heat.\r\nPlace the chicken breasts in the prepared pan. Pour one cup of the sauce over top of chicken. Place chicken in oven and bake 35 minutes or until cooked through. Remove from oven and shred chicken in the dish using two forks.\r\n*Meanwhile, steam or cook the vegetables according to package directions.\r\nAdd the cooked vegetables and rice to the casserole dish with the chicken. Add most of the remaining sauce, reserving a bit to drizzle over the top when serving. Gently toss everything together in the casserole dish until combined. Return to oven and cook 15 minutes. Remove from oven and let stand 5 minutes before serving. Drizzle each serving with remaining sauce. Enjoy!",
-                          tags: ["Meat", "Casserole"],
-                          instructionVideo: "https://www.youtube.com/watch?v=4aZr5hZXP_s",
-                          ingredients: ["soy sauce",
-                                       "water",
-                                       "brown sugar",
-                                       "ground ginger",
-                                       "minced garlic",
-                                       "cornstarch",
-                                       "chicken breasts",
-                                       "stir-fry vegetables",
-                                       "brown rice"],
-                          measurements: ["3/4 cup",
-                                        "1/2 cup",
-                                        "1/4 cup",
-                                        "1/2 teaspoon",
-                                        "1/2 teaspoon",
-                                        "4 Tablespoons",
-                                        "2",
-                                        "1 (12 oz.)",
-                                        "3 cups"],
-                          source: nil,
-                          imageSource: nil,
-                          creativeCommonsConfirmed: nil,
-                          dateModified: nil)
-    }
+struct Ingredient: Codable, Identifiable {
+    let ingredientDescription: String
+    let measurement: String
+
+    var id: UUID { return UUID() }
 }
 
 struct MealDetailResponse: Codable {
@@ -141,7 +113,7 @@ struct MealDetailAPI: Codable {
                            strIngredient17,
                            strIngredient18,
                            strIngredient19,
-                           strIngredient20].compactMap({ $0 }).filter({ $0.isEmpty })
+                           strIngredient20].compactMap({ $0 }).filter({ !$0.isEmpty })
 
         let measurements = [strMeasure1,
                             strMeasure2,
@@ -162,8 +134,14 @@ struct MealDetailAPI: Codable {
                             strMeasure17,
                             strMeasure18,
                             strMeasure19,
-                            strMeasure20].compactMap({ $0 }).filter({ $0.isEmpty })
+                            strMeasure20].compactMap({ $0 }).filter({ !$0.isEmpty })
+
+
+        let mergedIngredients = zip(ingredients, measurements).map({ Ingredient(ingredientDescription: $0, measurement: $1) })
+
         let tags: [String] = (strTags ?? "").split(separator: ",", omittingEmptySubsequences: true).map({ String($0) })
+
+
 
         return MealDetail(mealId: idMeal,
                           mealName: strMeal,
@@ -174,8 +152,7 @@ struct MealDetailAPI: Codable {
                           instructions: strInstructions ?? "Missing Instructions",
                           tags: tags,
                           instructionVideo: strYoutube ?? "Missing Video",
-                          ingredients: ingredients,
-                          measurements: measurements,
+                          ingredients: mergedIngredients,
                           source: strSource,
                           imageSource: strImageSource,
                           creativeCommonsConfirmed: strCreativeCommonsConfirmed,

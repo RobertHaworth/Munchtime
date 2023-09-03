@@ -25,12 +25,6 @@ struct Meal: Codable {
         case mealImage = "strMealThumb"
         case mealId = "idMeal"
     }
-
-    static var previewItem: Meal {
-        return Meal(mealName: "Classic Cherry Pie",
-                    mealImage: URL(string: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg")!,
-                    mealId: "0000")
-    }
 }
 
 extension Meal: Identifiable {
