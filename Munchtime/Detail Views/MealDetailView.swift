@@ -47,6 +47,9 @@ struct MealDetailView: View {
             }
             .padding(.horizontal)
         }
+        .refreshable {
+            loadDetails()
+        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
