@@ -35,17 +35,15 @@ class Request {
         if let category {
             componentURL = componentURL.appending(queryItems: [URLQueryItem(name: "c", value: category)])
         }
-
         let (data, _) = try await Request.sharedInstance.session.data(from: componentURL)
 
         return try decode(type: MealsResponse.self, data: data).meals
     }
 
     func getMealDetail(for mealId: String) async throws -> MealDetail? {
-        guard var componentURL = url?.appending(path: "lookup.php") else { throw RequestError.urlCreationFailure }
+        guard var componentURL = url?.appending(path: "/lookup.php") else { throw RequestError.urlCreationFailure }
 
         componentURL = componentURL.appending(queryItems: [URLQueryItem(name: "i", value: mealId)])
-
         let (data, _) = try await Request.sharedInstance.session.data(from: componentURL)
 
         return try decode(type: MealDetailResponse.self, data: data).meals.first?.convert()
