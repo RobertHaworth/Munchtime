@@ -84,16 +84,10 @@ struct MealDetailView: View {
     func loadDetails() {
         Task {
             do {
-                let details = try await Request.sharedInstance.getMealDetail(for: meal.id)
-                await MainActor.run {
-                    mealDetail = details
-                }
-
+                mealDetail = try await Request.sharedInstance.getMealDetail(for: meal.id)
             } catch {
-                await MainActor.run {
-                    self.error = error
-                    shouldDisplayError = true
-                }
+                self.error = error
+                shouldDisplayError = true
             }
         }
 
