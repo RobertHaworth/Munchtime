@@ -24,11 +24,13 @@ struct MealCard: View {
                 RoundedRectangle(cornerRadius: 16)
                     .strokeBorder(.cyan, lineWidth: 3)
             )
+            .accessibilityIdentifier("imageThumbnail")
 
             Text(meal.mealName)
                 .lineLimit(2)
                 .font(.subheadline)
                 .foregroundColor(.black)
+                .accessibilityIdentifier("labelMealName")
         }
         .padding()
         .frame(minWidth: 150, maxWidth: 200, minHeight: 150, maxHeight: 200)

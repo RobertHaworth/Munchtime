@@ -6,14 +6,18 @@
 //
 
 import XCTest
+@testable import Munchtime
 
 final class MunchtimeUITests: XCTestCase {
+
+    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -22,12 +26,39 @@ final class MunchtimeUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testMealListTitle() throws {
+        let navigationTitle = app.navigationBars.staticTexts["Munchtime Planner"]
+        XCTAssert(navigationTitle.exists)
+    }
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testMealListStructuralLayout() throws {
+        awaitLoad()
+
+        let scrollView = app.scrollViews.firstMatch
+        let gridView = app.otherElements["GridView"]
+
+        /// Testing our general expected structure of our primary screen.
+        XCTAssert(scrollView.exists)
+        XCTAssert(gridView.exists)
+
+        /// Affirm _some_ data has loaded.
+        XCTAssertGreaterThan(app.buttons.count, 0)
+    }
+
+    func testMealListDetailNavigation() throws {
+        awaitLoad()
+
+        app.buttons.firstMatch.tap()
+
+        awaitLoad()
+
+        XCTAssertFalse(app.navigationBars.staticTexts["Munchtime Planner"].exists)
+
+    }
+
+    fileprivate func awaitLoad() {
+        let exp = expectation(description: "Delaying to give view time to load data.")
+        _ = XCTWaiter.wait(for: [exp], timeout: 1.5)
     }
 
     func testLaunchPerformance() throws {

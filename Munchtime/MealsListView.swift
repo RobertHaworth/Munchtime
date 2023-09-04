@@ -21,10 +21,11 @@ struct MealsListView: View {
                     ForEach(meals) { meal in
                         NavigationLink(value: meal) {
                             MealCard(meal: meal)
-                        }
+                        }.accessibilityIdentifier("MealNavigation")
                     }
                 }
                 .padding(8)
+                .accessibilityIdentifier("GridView")
             }
             .refreshable {
                 getDesserts()
