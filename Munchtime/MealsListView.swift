@@ -65,14 +65,20 @@ struct MealsListView: View {
         }
     }
 
-    @MainActor
     func getDesserts() {
         Task {
             do {
-                meals = try await Request.sharedInstance.getAllMeals(category: "Dessert").sorted()
+                let response = try await Request.sharedInstance.getAllMeals(category: "Dessert").sorted()
+                await MainActor.run {
+                    meals = response
+                }
             } catch {
-                self.error = error
-                self.shouldDisplayError = true
+                await MainActor.run {
+                    self.error = error
+                    shouldDisplayError = true
+                }
+
+
             }
         }
     }

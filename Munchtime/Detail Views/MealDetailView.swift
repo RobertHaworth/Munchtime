@@ -13,6 +13,8 @@ struct MealDetailView: View {
     let meal: Meal
 
     @State var mealDetail: MealDetail?
+    @State var error: Error?
+    @State var shouldDisplayError: Bool = false
 
     var body: some View {
         ScrollView {
@@ -62,15 +64,36 @@ struct MealDetailView: View {
         .onAppear {
             loadDetails()
         }
+        .alert("Error Detected",
+               isPresented: $shouldDisplayError,
+               presenting: error,
+               actions: { _ in
+            Button("Retry") {
+                error = nil
+                loadDetails()
+            }
+
+            Button("Cancel") {
+                error = nil
+            }
+        }) { error in
+            Text("Failure to load desserts with error: \(error.localizedDescription)")
+        }
     }
 
-    @MainActor
     func loadDetails() {
         Task {
             do {
-                mealDetail = try await Request.sharedInstance.getMealDetail(for: meal.id)
-            } catch  {
-                print(error)
+                let details = try await Request.sharedInstance.getMealDetail(for: meal.id)
+                await MainActor.run {
+                    mealDetail = details
+                }
+
+            } catch {
+                await MainActor.run {
+                    self.error = error
+                    shouldDisplayError = true
+                }
             }
         }
 
