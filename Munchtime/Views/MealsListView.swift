@@ -5,14 +5,14 @@
 //  Created by Robert Haworth on 8/31/23.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct MealsListView: View {
 
     @State var meals: [Meal] = []
     @State var error: Error?
-    @State var shouldDisplayError: Bool = false
+    @State var shouldDisplayError = false
 
     var body: some View {
         NavigationStack {
@@ -21,7 +21,8 @@ struct MealsListView: View {
                     ForEach(meals) { meal in
                         NavigationLink(value: meal) {
                             MealCard(meal: meal)
-                        }.accessibilityIdentifier("MealNavigation")
+                        }
+                        .accessibilityIdentifier("MealNavigation")
                     }
                 }
                 .padding(8)
@@ -60,9 +61,10 @@ struct MealsListView: View {
             Button("Cancel") {
                 error = nil
             }
-        }) { error in
+        },
+               message: { error in
             Text("Failure to load desserts with error: \(error.localizedDescription)")
-        }
+        })
     }
 
     func getDesserts() {

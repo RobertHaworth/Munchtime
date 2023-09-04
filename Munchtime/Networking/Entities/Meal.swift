@@ -35,6 +35,7 @@ extension Meal: Comparable {
 
 extension Meal: Identifiable {
     typealias ID = String
+
     var id: String { return mealId }
 }
 

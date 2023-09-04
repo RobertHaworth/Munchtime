@@ -5,8 +5,8 @@
 //  Created by Robert Haworth on 9/3/23.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct MealCard: View {
     let meal: Meal

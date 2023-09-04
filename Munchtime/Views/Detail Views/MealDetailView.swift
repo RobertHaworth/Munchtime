@@ -5,8 +5,8 @@
 //  Created by Robert Haworth on 8/31/23.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct MealDetailView: View {
 
@@ -14,7 +14,7 @@ struct MealDetailView: View {
 
     @State var mealDetail: MealDetail?
     @State var error: Error?
-    @State var shouldDisplayError: Bool = false
+    @State var shouldDisplayError = false
 
     var body: some View {
         ScrollView {
@@ -32,7 +32,6 @@ struct MealDetailView: View {
                         .frame(width: UIScreen.main.bounds.width / 2)
                         .background(Color.green.opacity(0.3))
                         .cornerRadius(16.0)
-
 
                     MealIngredientView(ingredients: mealDetail.ingredients)
 
@@ -79,9 +78,10 @@ struct MealDetailView: View {
             Button("Cancel") {
                 error = nil
             }
-        }) { error in
+        },
+               message: { error in
             Text("Failure to load desserts with error: \(error.localizedDescription)")
-        }
+        })
     }
 
     func loadDetails() {
@@ -93,7 +93,6 @@ struct MealDetailView: View {
                 shouldDisplayError = true
             }
         }
-
     }
 }
 

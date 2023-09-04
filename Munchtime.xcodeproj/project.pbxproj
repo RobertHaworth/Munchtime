@@ -23,6 +23,7 @@
 		4AB896AB2AA50C5D0022FE92 /* PreviewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */; };
 		4AB896AD2AA50F5C0022FE92 /* MealInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */; };
 		4AB896AF2AA57C0D0022FE92 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AE2AA57C0D0022FE92 /* MealCard.swift */; };
+		4AB896B72AA69F330022FE92 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AB896B62AA69F330022FE92 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtensions.swift; sourceTree = "<group>"; };
 		4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructionView.swift; sourceTree = "<group>"; };
 		4AB896AE2AA57C0D0022FE92 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
+		4AB896B62AA69F330022FE92 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,14 +115,11 @@
 		4AB8966E2AA107A90022FE92 /* Munchtime */ = {
 			isa = PBXGroup;
 			children = (
-				4AB896752AA107AA0022FE92 /* Munchtime.entitlements */,
-				4AB896712AA107A90022FE92 /* MealsListView.swift */,
 				4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */,
-				4AB896732AA107AA0022FE92 /* Assets.xcassets */,
-				4AB896A72AA50BC90022FE92 /* Detail Views */,
+				4AB896B12AA69A7C0022FE92 /* Supporting Files */,
+				4AB896B02AA69A5D0022FE92 /* Views */,
 				4AB8969A2AA10A6A0022FE92 /* Networking */,
 				4AB896762AA107AA0022FE92 /* Preview Content */,
-				4AB896AE2AA57C0D0022FE92 /* MealCard.swift */,
 			);
 			path = Munchtime;
 			sourceTree = "<group>";
@@ -179,6 +178,26 @@
 			path = "Detail Views";
 			sourceTree = "<group>";
 		};
+		4AB896B02AA69A5D0022FE92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AB896712AA107A90022FE92 /* MealsListView.swift */,
+				4AB896AE2AA57C0D0022FE92 /* MealCard.swift */,
+				4AB896A72AA50BC90022FE92 /* Detail Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4AB896B12AA69A7C0022FE92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AB896B62AA69F330022FE92 /* .swiftlint.yml */,
+				4AB896732AA107AA0022FE92 /* Assets.xcassets */,
+				4AB896752AA107AA0022FE92 /* Munchtime.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AB896912AA107AA0022FE92 /* Build configuration list for PBXNativeTarget "Munchtime" */;
 			buildPhases = (
+				4AB896B52AA69E080022FE92 /* ShellScript */,
 				4AB896682AA107A90022FE92 /* Sources */,
 				4AB896692AA107A90022FE92 /* Frameworks */,
 				4AB8966A2AA107A90022FE92 /* Resources */,
@@ -289,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB896B72AA69F330022FE92 /* .swiftlint.yml in Resources */,
 				4AB896782AA107AA0022FE92 /* Preview Assets.xcassets in Resources */,
 				4AB896742AA107AA0022FE92 /* Assets.xcassets in Resources */,
 			);
@@ -309,6 +330,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AB896B52AA69E080022FE92 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AB896682AA107A90022FE92 /* Sources */ = {
@@ -475,7 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Munchtime/Munchtime.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Munchtime/Supporting Files/Munchtime.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Munchtime/Preview Content\"";
@@ -513,7 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Munchtime/Munchtime.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Munchtime/Supporting Files/Munchtime.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Munchtime/Preview Content\"";

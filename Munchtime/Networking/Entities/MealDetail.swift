@@ -13,7 +13,7 @@ struct MealDetail: Codable {
     let mealImage: URL
     let drinkAlternate: String? // strDrinkAlternate
     let category: String // strCategory
-    let locale: String //strArea
+    let locale: String // strArea
     let instructions: String // strInstructions
     let tags: [String] // strTags
     let instructionVideo: String // strYoutube
@@ -40,7 +40,7 @@ struct MealDetailAPI: Codable {
     let strMeal: String
     let strDrinkAlternate: String? // strDrinkAlternate
     let strCategory: String? // strCategory
-    let strArea: String? //strArea
+    let strArea: String? // strArea
     let strInstructions: String? // strInstructions
     let strMealThumb: URL
     let strTags: String? // strTags
@@ -136,12 +136,10 @@ struct MealDetailAPI: Codable {
                             strMeasure19,
                             strMeasure20].compactMap({ $0 }).filter({ !$0.isEmpty })
 
-
-        let mergedIngredients = zip(ingredients, measurements).map({ Ingredient(ingredientDescription: $0, measurement: $1) })
+        let mergedIngredients = zip(ingredients, measurements).map({ Ingredient(ingredientDescription: $0,
+                                                                                measurement: $1) })
 
         let tags: [String] = (strTags ?? "").split(separator: ",", omittingEmptySubsequences: true).map({ String($0) })
-
-
 
         return MealDetail(mealId: idMeal,
                           mealName: strMeal,

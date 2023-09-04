@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension Meal {
     static var previewItem: Meal {
         return Meal(mealName: "Krispy Kreme Donut",
@@ -16,7 +15,9 @@ extension Meal {
     }
 }
 
-/// Mirroring the data found within the mealdb datastructures. Looking deeper into the ingredients and measurements, these measurements seem to not line up correctly with ingredients but this correctly matches the data being returned from the server.
+// swiftlint:disable line_length
+/// Mirroring the data found within the mealdb datastructures. Looking deeper into the ingredients and measurements,
+/// these measurements seem to not line up correctly with ingredients but this correctly matches the data being returned from the server.
 extension MealDetail {
     static var previewItem: MealDetail {
         return MealDetail(mealId: "53015",
@@ -35,6 +36,7 @@ extension MealDetail {
                           dateModified: nil)
     }
 }
+// swiftlint:enable line_length
 
 extension Ingredient {
     static var previewItems: [Ingredient] {

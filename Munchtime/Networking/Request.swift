@@ -11,11 +11,9 @@ enum RequestError: Error {
     case urlCreationFailure
 }
 
-
 class Request {
 
-    private var session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
-
+    private var session = URLSession(configuration: URLSessionConfiguration.default)
 
     private static let urlString = "https://www.themealdb.com/api/json"
     private static let apiVersion = "/v1"
@@ -57,5 +55,3 @@ class Request {
         return try decoder.decode(type, from: data)
     }
 }
-
-
