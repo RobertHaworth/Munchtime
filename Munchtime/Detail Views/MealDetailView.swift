@@ -18,7 +18,9 @@ struct MealDetailView: View {
         ScrollView {
             VStack {
                 if let mealDetail {
-                    KFImage(meal.mealImage).resizable().aspectRatio(contentMode: .fit)
+                    KFImage(meal.mealImage).resizable()
+                        .placeholder({ ProgressView() })
+                        .aspectRatio(contentMode: .fit)
                         .cornerRadius(16.0)
                         .overlay(
                             RoundedRectangle(cornerRadius: 16)
@@ -32,10 +34,12 @@ struct MealDetailView: View {
 
                     MealIngredientView(ingredients: mealDetail.ingredients)
 
-                    MealInstructionView(instructions: mealDetail.instructions)
+                    MealInstructionView(instructions: mealDetail.instructions,
+                                        instructionVideo: mealDetail.instructionVideo)
                 } else {
                     VStack {
                         Text("Loading Details")
+                        ProgressView()
                     }
                 }
             }

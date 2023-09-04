@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct DessertsListView: View {
+struct MealsListView: View {
 
     @State var meals: [Meal] = []
     @State var error: Error?
@@ -17,18 +17,20 @@ struct DessertsListView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.fixed(175)), GridItem(.fixed(175))]) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(meals) { meal in
                         NavigationLink(value: meal) {
                             MealCard(meal: meal)
                         }
                     }
                 }
+                .padding(8)
             }
             .refreshable {
                 getDesserts()
             }
-            .navigationDestination(for: Meal.self, destination: { meal in
+            .navigationDestination(for: Meal.self,
+                                   destination: { meal in
                 MealDetailView(meal: meal)
             })
             .overlay(VStack {
@@ -39,10 +41,7 @@ struct DessertsListView: View {
                     .padding(.horizontal, 16.0)
                     Spacer()
                 }
-
-
             })
-
             .onAppear {
                 getDesserts()
             }
@@ -69,7 +68,7 @@ struct DessertsListView: View {
     func getDesserts() {
         Task {
             do {
-                meals = try await Request.sharedInstance.getAllMeals(category: "Dessert")
+                meals = try await Request.sharedInstance.getAllMeals(category: "Dessert").sorted()
             } catch {
                 self.error = error
                 self.shouldDisplayError = true
@@ -78,43 +77,8 @@ struct DessertsListView: View {
     }
 }
 
-struct MealCard: View {
-    let meal: Meal
-
-    var body: some View {
-        VStack(alignment: .center) {
-            KFImage(meal.mealThumbnail)
-                .resizable()
-                .placeholder({ _ in
-                    ProgressView()
-                })
-            .frame(width: 100, height: 100)
-            .cornerRadius(16)
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .strokeBorder(.cyan, lineWidth: 3)
-            )
-
-            Text(meal.mealName)
-                .lineLimit(2)
-                .font(.subheadline)
-                .foregroundColor(.black)
-        }
-        .padding()
-        .frame(minWidth: 150, maxWidth: 200, minHeight: 150, maxHeight: 200)
-        .background(Color.green.opacity(0.2))
-        .cornerRadius(16.0)
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DessertsListView()
-    }
-}
-
-struct MealCard_Previews: PreviewProvider {
-    static var previews: some View {
-        MealCard(meal: Meal.previewItem)
+        MealsListView()
     }
 }

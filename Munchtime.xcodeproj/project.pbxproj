@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AB896702AA107A90022FE92 /* MunchtimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */; };
-		4AB896722AA107A90022FE92 /* DessertsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896712AA107A90022FE92 /* DessertsListView.swift */; };
+		4AB896722AA107A90022FE92 /* MealsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896712AA107A90022FE92 /* MealsListView.swift */; };
 		4AB896742AA107AA0022FE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB896732AA107AA0022FE92 /* Assets.xcassets */; };
 		4AB896782AA107AA0022FE92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AB896772AA107AA0022FE92 /* Preview Assets.xcassets */; };
 		4AB896822AA107AA0022FE92 /* MunchtimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896812AA107AA0022FE92 /* MunchtimeTests.swift */; };
@@ -22,6 +22,7 @@
 		4AB896A92AA50C070022FE92 /* MealIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896A82AA50C070022FE92 /* MealIngredientView.swift */; };
 		4AB896AB2AA50C5D0022FE92 /* PreviewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */; };
 		4AB896AD2AA50F5C0022FE92 /* MealInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */; };
+		4AB896AF2AA57C0D0022FE92 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AE2AA57C0D0022FE92 /* MealCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,7 @@
 /* Begin PBXFileReference section */
 		4AB8966C2AA107A90022FE92 /* Munchtime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Munchtime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunchtimeApp.swift; sourceTree = "<group>"; };
-		4AB896712AA107A90022FE92 /* DessertsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertsListView.swift; sourceTree = "<group>"; };
+		4AB896712AA107A90022FE92 /* MealsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsListView.swift; sourceTree = "<group>"; };
 		4AB896732AA107AA0022FE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AB896752AA107AA0022FE92 /* Munchtime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Munchtime.entitlements; sourceTree = "<group>"; };
 		4AB896772AA107AA0022FE92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		4AB896A82AA50C070022FE92 /* MealIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealIngredientView.swift; sourceTree = "<group>"; };
 		4AB896AA2AA50C5D0022FE92 /* PreviewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtensions.swift; sourceTree = "<group>"; };
 		4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructionView.swift; sourceTree = "<group>"; };
+		4AB896AE2AA57C0D0022FE92 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +114,13 @@
 			isa = PBXGroup;
 			children = (
 				4AB896752AA107AA0022FE92 /* Munchtime.entitlements */,
-				4AB896712AA107A90022FE92 /* DessertsListView.swift */,
+				4AB896712AA107A90022FE92 /* MealsListView.swift */,
 				4AB8966F2AA107A90022FE92 /* MunchtimeApp.swift */,
 				4AB896732AA107AA0022FE92 /* Assets.xcassets */,
 				4AB896A72AA50BC90022FE92 /* Detail Views */,
 				4AB8969A2AA10A6A0022FE92 /* Networking */,
 				4AB896762AA107AA0022FE92 /* Preview Content */,
+				4AB896AE2AA57C0D0022FE92 /* MealCard.swift */,
 			);
 			path = Munchtime;
 			sourceTree = "<group>";
@@ -312,8 +315,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB896AF2AA57C0D0022FE92 /* MealCard.swift in Sources */,
 				4AB8969F2AA119410022FE92 /* Meal.swift in Sources */,
-				4AB896722AA107A90022FE92 /* DessertsListView.swift in Sources */,
+				4AB896722AA107A90022FE92 /* MealsListView.swift in Sources */,
 				4AB8969C2AA10A7C0022FE92 /* Request.swift in Sources */,
 				4AB896A92AA50C070022FE92 /* MealIngredientView.swift in Sources */,
 				4AB896AB2AA50C5D0022FE92 /* PreviewExtensions.swift in Sources */,

@@ -10,13 +10,25 @@ import SwiftUI
 struct MealInstructionView: View {
 
     let instructions: String
+    let instructionVideo: String?
 
     var body: some View {
         VStack(alignment: .leading) {
             Text("Instructions")
                 .underline()
                 .font(.largeTitle)
-                .padding(4.0)
+                .padding(.bottom, 4.0)
+            if let instructionVideo,
+               let url = URL(string: instructionVideo) {
+                Button(action: {
+                    UIApplication.shared.open(url)
+                }, label: {
+                    Text("Video Instructions")
+                        .underline()
+                })
+                .padding(.bottom, 4)
+            }
+
             Text(instructions)
         }
         .padding()
@@ -27,6 +39,11 @@ struct MealInstructionView: View {
 
 struct MealInstructionView_Previews: PreviewProvider {
     static var previews: some View {
-        MealInstructionView(instructions: MealDetail.previewItem.instructions)
+        Group {
+            MealInstructionView(instructions: MealDetail.previewItem.instructions,
+                                instructionVideo: nil)
+            MealInstructionView(instructions: MealDetail.previewItem.instructions,
+                                instructionVideo: "https://www.youtube.com/watch?v=SamYg6IUGOI")
+        }
     }
 }

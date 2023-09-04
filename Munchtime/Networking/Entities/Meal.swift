@@ -27,6 +27,12 @@ struct Meal: Codable {
     }
 }
 
+extension Meal: Comparable {
+    static func < (lhs: Meal, rhs: Meal) -> Bool {
+        return lhs.mealName < rhs.mealName
+    }
+}
+
 extension Meal: Identifiable {
     typealias ID = String
     var id: String { return mealId }
