@@ -45,7 +45,6 @@ class Request {
 
         componentURL = componentURL.appending(queryItems: [URLQueryItem(name: "i", value: mealId)])
         let (data, _) = try await Request.sharedInstance.session.data(from: componentURL)
-
         return try decode(type: MealDetailResponse.self, data: data).meals.first?.convert()
     }
 

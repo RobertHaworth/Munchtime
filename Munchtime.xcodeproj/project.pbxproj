@@ -24,6 +24,7 @@
 		4AB896AD2AA50F5C0022FE92 /* MealInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */; };
 		4AB896AF2AA57C0D0022FE92 /* MealCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896AE2AA57C0D0022FE92 /* MealCard.swift */; };
 		4AB896B72AA69F330022FE92 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AB896B62AA69F330022FE92 /* .swiftlint.yml */; };
+		4AB896B92AA6AE290022FE92 /* MealSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB896B82AA6AE290022FE92 /* MealSourceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructionView.swift; sourceTree = "<group>"; };
 		4AB896AE2AA57C0D0022FE92 /* MealCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCard.swift; sourceTree = "<group>"; };
 		4AB896B62AA69F330022FE92 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		4AB896B82AA6AE290022FE92 /* MealSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSourceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				4AB896A02AA12B1A0022FE92 /* MealDetailView.swift */,
 				4AB896A82AA50C070022FE92 /* MealIngredientView.swift */,
 				4AB896AC2AA50F5C0022FE92 /* MealInstructionView.swift */,
+				4AB896B82AA6AE290022FE92 /* MealSourceView.swift */,
 			);
 			path = "Detail Views";
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AB896AF2AA57C0D0022FE92 /* MealCard.swift in Sources */,
+				4AB896B92AA6AE290022FE92 /* MealSourceView.swift in Sources */,
 				4AB8969F2AA119410022FE92 /* Meal.swift in Sources */,
 				4AB896722AA107A90022FE92 /* MealsListView.swift in Sources */,
 				4AB8969C2AA10A7C0022FE92 /* Request.swift in Sources */,

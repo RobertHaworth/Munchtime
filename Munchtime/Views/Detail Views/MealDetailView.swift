@@ -37,6 +37,8 @@ struct MealDetailView: View {
 
                     MealInstructionView(instructions: mealDetail.instructions,
                                         instructionVideo: mealDetail.instructionVideo)
+
+                    MealSourceView(sourceURL: mealDetail.source)
                 } else {
                     VStack {
                         Text("Loading Details")
